@@ -41,6 +41,10 @@ class InscriptionController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'email' => 'email|required|min:10',
+            'password' => 'password|required|min:5|max:20'
+        ]);
         $inscriptions=new User();
         $inscriptions->email=$request->input("email");
         $inscriptions->password=$request->input("password");

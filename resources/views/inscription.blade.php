@@ -11,13 +11,19 @@
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6 mx-auto">
-                    <input type="mail" class="form-control" name="email" id="mail" placeholder="Mail" data-rule="mail"
+                    <input type="mail" class="form-control @error('email') is-invalid @enderror" value="" name="email" id="email" placeholder="Email" data-rule="email"
                         data-msg="" />
+                        @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     <div class="validation"></div>
                 </div>
                 <div class="form-group col-md-6 mx-auto">
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Password"
+                    <input type="password" class="form-control @error('email') is-invalid @enderror" name="password" id="password" placeholder="Password"
                         data-rule="password" data-msg="" />
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                     <div class="validation"></div>
                 </div>
 
